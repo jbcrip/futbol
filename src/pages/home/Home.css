@@ -1,0 +1,525 @@
+/* ===== VARIABLES Y RESET ===== */
+.home-page {
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+    background: var(--bg-main);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    /* Un poco más compacto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+    background: radial-gradient(circle at top center, #1e293b 0%, #0f172a 70%);
+    /* Gradiente muy sutil */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+    color: var(--text-main);
+}
+
+.gradient-text {
+    /* Eliminado el gradiente neón, ahora es un acento sutil o solo blanco */
+    color: var(--primary);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.stat-card {
+    background: transparent;
+    border: none;
+    padding: 0 2rem;
+    min-width: auto;
+    text-align: center;
+}
+
+.stat-card:hover {
+    transform: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.floating-ball {
+    display: none;
+    /* Eliminado para ser más discreto */
+}
+
+/* ===== SECTIONS ===== */
+.leagues-section,
+.news-section,
+.events-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-main);
+}
+
+.title-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* ===== LEAGUES GRID ===== */
+.leagues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.league-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.league-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--league-color);
+    /* Mantenemos el color identificativo pero sutil */
+    opacity: 0.8;
+}
+
+.league-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #252f45;
+    /* Ligeramente más claro al hover */
+}
+
+.league-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.league-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.league-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estados más sobrios */
+.league-status.en-curso {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.league-status.próximamente {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.league-status.inscripciones {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.league-info {
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.league-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.league-btn:hover {
+    background: var(--bg-main);
+    border-color: var(--text-muted);
+}
+
+/* ===== NEWS GRID ===== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.news-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.news-image {
+    position: relative;
+    height: 180px;
+    background: #2d3748;
+    /* Fondo gris neutro para imagen placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-emoji {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.news-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.news-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.news-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.news-link:hover {
+    color: var(--primary-dark);
+}
+
+/* ===== EVENTS TIMELINE ===== */
+.events-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-left: 4px solid;
+    /* Color indicador sutil */
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+/* Colores de borde más suaves */
+.event-final {
+    border-left-color: #ef4444;
+}
+
+/* Rojo suave */
+.event-jornada {
+    border-left-color: #3b82f6;
+}
+
+/* Azul */
+.event-torneo {
+    border-left-color: #f59e0b;
+}
+
+/* Ámbar */
+
+.event-card:hover {
+    background: #252f45;
+}
+
+.event-date-badge {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+    min-width: 70px;
+}
+
+.event-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.event-month {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.event-info {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.event-info-item {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.event-btn {
+    padding: 0.6rem 1.25rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.event-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+    margin: 4rem auto;
+    max-width: 1000px;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.cta-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cta-btn.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.cta-btn.primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.cta-btn.secondary:hover {
+    border-color: var(--text-muted);
+    background: var(--bg-main);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-stats {
+        border-top: none;
+        padding-top: 1rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+        min-width: 100px;
+    }
+
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: stretch;
+    }
+
+    .event-info {
+        justify-content: center;
+    }
+
+    .event-date-badge {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        align-items: baseline;
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,250 @@
+.detalle-equipo-page {
+    min-height: 100vh;
+    background: var(--bg-main);
+    padding-bottom: 4rem;
+}
+
+/* Header */
+.equipo-header {
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), var(--bg-main)),
+        linear-gradient(45deg, var(--equipo-color), transparent);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.equipo-profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.equipo-logo-large {
+    font-size: 5rem;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.equipo-title h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0.5rem 0;
+    line-height: 1;
+}
+
+.liga-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.liga-tag:hover {
+    text-decoration: underline;
+}
+
+.equipo-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+
+/* Layout */
+.content-grid-equipo {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.equipo-section h2 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Tabla Jugadores */
+.tabla-jugadores {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabla-jugadores th {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.tabla-jugadores td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.tabla-jugadores tr:last-child td {
+    border-bottom: none;
+}
+
+.dorsal-cell {
+    font-weight: 700;
+    color: var(--text-muted);
+    width: 50px;
+    text-align: center;
+}
+
+.jugador-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.jugador-foto {
+    font-size: 1.5rem;
+    background: var(--bg-main);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+}
+
+.jugador-nombre {
+    font-weight: 600;
+}
+
+.posicion-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.posicion-badge.portero {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+}
+
+.posicion-badge.defensa {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.posicion-badge.medio {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+.posicion-badge.delantero {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.stat-col {
+    text-align: center !important;
+    width: 60px;
+    font-weight: 600;
+}
+
+/* Stats Sidebar */
+.stats-card,
+.description-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stats-card h3,
+.description-card h3 {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-box {
+    background: var(--bg-main);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.stat-txt {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.stat-box.highlight .stat-num {
+    color: var(--primary);
+}
+
+.stat-box.success .stat-num {
+    color: #10b981;
+}
+
+.stat-box.danger .stat-num {
+    color: #ef4444;
+}
+
+.description-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .content-grid-equipo {
+        grid-template-columns: 1fr;
+    }
+
+    .equipo-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .equipo-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
