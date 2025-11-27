@@ -89,10 +89,6 @@ Para más información sobre la estructura y convenciones del proyecto, consulta
 - [Guía de componentes](./src/components/README.md)
 - [Backend API](./backend/README.md)
 
-## 🤝 Contribución
-
-Este es un proyecto en desarrollo. Las contribuciones son bienvenidas.
-
 ## 📄 Licencia
 
 Privado - Todos los derechos reservados
